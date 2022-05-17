@@ -1,0 +1,39 @@
+.content {
+  padding: 2rem 1.8rem;
+}
+
+.loading .image,
+.loading h4,
+.loading .content div {
+  background-color: #ededed;
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    #ededed;
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
+
+.loading .content div {
+  margin: 0 0 1rem;
+  min-height: 4.5rem;
+  border-radius: 4px;
+  animation-delay: 0.06s;
+}
+
+.loading .content div:last-child {
+    /* width: 50%; */
+    margin: 0 0 0 auto;
+    min-height: 3rem;
+  }
+  
