@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 
-export const useAddTask = (callback) => {
+export const useAddTask = (func) => {
   useEffect(() => {
     const handleEnter = (e) => {
       if (e.key === "Enter") {
-        callback();
+        func();
       }
     };
     window.addEventListener("keydown", handleEnter);
     return () => {
       window.removeEventListener("keydown", handleEnter);
     };
-  }, [callback]);
+  }, [func]);
 };
