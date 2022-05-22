@@ -15,7 +15,6 @@
 }
 
 .list {
-  border-radius: 7px;
   display: flex;
   flex-direction: column;
   min-height: auto;
@@ -25,4 +24,10 @@
 
 .radio {
   height: auto;
+}
+
+@media (max-width: 900px) {
+  .form {
+    border-radius: 0px;
+  }
 }

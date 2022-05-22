@@ -15,13 +15,12 @@
   padding: 0 0 0 20px;
   height: 85px;
   background-color: #fff;
-  font-size: 21px;
+  font-size: 24px;
   color: #34353a;
   border-radius: 7px;
 }
 
 .button {
-  margin: 0;
   padding: 0;
   width: 35px;
   height: 35px;
@@ -34,4 +33,9 @@
 .button:hover {
   border: 1px solid #fff;
   transition: 0.1s linear;
+}
+@media (max-width: 900px) {
+  .form {
+    border-radius: 0px;
+  }
 }

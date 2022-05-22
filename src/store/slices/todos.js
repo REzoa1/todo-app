@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { TODOS_STATE, TODOS_URL } from "../../utils/constants";
+import { TODOS_URL } from "../../utils/constants";
 
 const initialState = {
   todosList: [],
@@ -7,24 +7,11 @@ const initialState = {
   error: null,
 };
 
-const postTodos = async () => {
-  for (const item of TODOS_STATE) {
-    const res = await fetch(TODOS_URL, {
-      method: "POST",
-      body: JSON.stringify(item),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    await res.json();
-  }
-};
+
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
   const response = await fetch(TODOS_URL);
   if (response.ok) {
-    const promise = await response.json();
-    if (promise.length > 0) return promise;
-    else postTodos();
+    return await response.json();
   } else {
     return new Error("Ошибка при получении списка.");
   }
@@ -78,6 +65,7 @@ export const deleteTodosList = createAsyncThunk(
 const todosSlice = createSlice({
   name: "todos",
   initialState,
+  
 
   extraReducers: (builder) => {
     builder.addCase(fetchTodos.pending, (state, action) => {
@@ -92,20 +80,30 @@ const todosSlice = createSlice({
       state.isLoading = false;
     });
 
+    builder.addCase(createNewTodo.pending, (state, action) => {
+      state.isLoading = true;
+    });
     builder.addCase(createNewTodo.fulfilled, (state, action) => {
       state.todosList.push(action.payload);
+      state.isLoading = false;
     });
     builder.addCase(createNewTodo.rejected, (state, action) => {
       state.error = action.payload;
+      state.isLoading = false;
     });
 
+    builder.addCase(deleteTodo.pending, (state, action) => {
+      state.isLoading = true;
+    });
     builder.addCase(deleteTodo.fulfilled, (state, action) => {
       state.todosList = state.todosList.filter(
         (todo) => todo.key !== action.payload.key
       );
+      state.isLoading = false;
     });
     builder.addCase(deleteTodo.rejected, (state, action) => {
       state.error = action.payload;
+      state.isLoading = false;
     });
 
     builder.addCase(deleteTodosList.pending, (state, action) => {

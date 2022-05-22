@@ -1,11 +1,11 @@
 import "./App.css";
-import { Todos } from "./components/Todos";
+import { TodosView } from "./components/TodosView";
 
 function App() {
   return (
     <div className="App">
       <div className="background" />
-      <Todos />
+      <TodosView />
       <div className="footer" />
     </div>
   );

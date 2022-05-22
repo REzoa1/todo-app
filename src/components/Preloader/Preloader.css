@@ -32,7 +32,6 @@
 }
 
 .loading .content div:last-child {
-    /* width: 50%; */
     margin: 0 0 0 auto;
     min-height: 3rem;
   }

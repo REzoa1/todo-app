@@ -47,21 +47,38 @@ button {
   border: none;
 }
 .container {
-  margin: 0 600px;
+  margin: 0 670px;
   position: relative;
 }
 .ant-table-container,
 .ant-table-tbody tr button {
-  font-size: 19px;
+  font-size: 21px;
 }
-
+.ant-table-tbody tr:hover button,
+.ant-table-tbody tr:hover label {
+  color: #1890ff;
+}
+.ant-table-thead th button svg {
+  color: transparent;
+}
+.ant-table-thead th button svg {
+  font-size: 0px;
+}
 @media (max-width: 1700px) {
   .container {
-    margin: 0 20%;
+    margin: 0 25%;
   }
 }
 @media (max-width: 900px) {
   .container {
-    margin: 0 auto;
+    margin: 0 0px;
+  }
+  .ant-table-thead th button span {
+    font-size: 0px;
+  }
+  .ant-table-thead th button svg {
+    font-size: 14px;
+    margin: 0px;
+    color: #fff;
   }
 }

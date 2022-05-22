@@ -1,18 +1,16 @@
-import "./SelectionTable.css";
 import React, { useState } from "react";
 import { Table } from "antd";
-import { deleteTodo, selectTodosData } from "./../../store/slices/todos";
+import { deleteTodo, selectTodosData } from "../../store/slices/todos";
 import { useDispatch, useSelector } from "react-redux";
-import { Preloader } from "./../Preloader/Preloader";
 import {
   copyText,
   deleteConfirmation,
   deleteSelectedButton,
   deleteTodoButton,
-} from "./../../utils/helpers";
+} from "../../utils/helpers";
 
-export const SelectionTable = () => {
-  const { todosList, isLoading } = useSelector(selectTodosData);
+export const TodoList = () => {
+  const { todosList } = useSelector(selectTodosData);
   const dispatch = useDispatch();
   const handleDeleteTodo = (postId) => {
     dispatch(deleteTodo(postId));
@@ -45,17 +43,15 @@ export const SelectionTable = () => {
   ];
 
   return (
-    <Preloader isLoading={isLoading}>
-      <Table
-        rowSelection={rowSelection}
-        columns={columns}
-        dataSource={todosList}
-        pagination={{
-          pageSize: 5,
-          size: "small",
-          position: ["bottomCenter"],
-        }}
-      />
-    </Preloader>
+    <Table
+      rowSelection={rowSelection}
+      columns={columns}
+      dataSource={todosList}
+      pagination={{
+        pageSize: 5,
+        size: "small",
+        position: ["bottomCenter"],
+      }}
+    />
   );
 };

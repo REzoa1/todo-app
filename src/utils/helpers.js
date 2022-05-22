@@ -1,4 +1,4 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, message, Modal, Popconfirm } from "antd";
 import { deleteTodosList } from "../store/slices/todos";
@@ -40,6 +40,7 @@ export const deleteSelectedButton = (selectedKey, handleDeleteList) => {
         onClick={() => handleDeleteList(selectedKey)}
         danger
       >
+        <FontAwesomeIcon icon={faTrash} />
         Удалить выбранное
       </Button>
     );
