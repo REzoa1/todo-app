@@ -20,3 +20,7 @@ Ant Design, Redux Toolkit, Font Awesome, ES Lint
 &ensp;&ensp;4.1. Добавление новой задачи;  
 &ensp;&ensp;4.2. Удаление одной или нескольких задач;  
 &ensp;&ensp;4.3. Сортировка по названию.
+
+## Netlify:
+Ссылка на задеплоенную версию
+https://stunning-gelato-175aa2.netlify.app/
